@@ -17,9 +17,9 @@ def convert_to_csv(matchup, location, fixture_datetime, bookmaker, odds_list):
     while len(odds_list) % 3 != 0:
         odds_list.append(np.nan)
 
-    home_odds = [float(o) if o not in [None, '', np.nan] else np.nan for i, o in enumerate(odds_list) if i % 3 == 0]
-    draw_odds = [float(o) if o not in [None, '', np.nan] else np.nan for i, o in enumerate(odds_list) if i % 3 == 1]
-    away_odds = [float(o) if o not in [None, '', np.nan] else np.nan for i, o in enumerate(odds_list) if i % 3 == 2]
+    home_odds = [float(odds_list[i]) for i in range(0, len(odds_list), 3)]
+    draw_odds = [float(odds_list[i]) for i in range(1, len(odds_list), 3)]
+    away_odds = [float(odds_list[i]) for i in range(2, len(odds_list), 3)]
     
     df = pd.DataFrame({
         'Matchup' : matchup,
