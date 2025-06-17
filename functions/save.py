@@ -14,9 +14,6 @@ def convert_to_csv(matchup, location, fixture_datetime, bookmaker, odds_list):
     datas, horas = data_cleaning(fixture_datetime)
 
     #Odds
-    while len(odds_list) % 3 != 0:
-        odds_list.append(np.nan)
-
     home_odds = [float(odds_list[i]) for i in range(0, len(odds_list), 3)]
     draw_odds = [float(odds_list[i]) for i in range(1, len(odds_list), 3)]
     away_odds = [float(odds_list[i]) for i in range(2, len(odds_list), 3)]
