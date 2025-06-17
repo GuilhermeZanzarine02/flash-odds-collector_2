@@ -13,5 +13,5 @@ def load_page(driver):
     driver.maximize_window()
 
     accept_cookies(driver)
-    matchup, location, fixture_datetime = open_match_details(driver)
-    convert_to_csv(matchup, location, fixture_datetime)
+    matchup, location, fixture_datetime, bookmaker, odds_list = open_match_details(driver)
+    convert_to_csv(matchup, location, fixture_datetime, bookmaker, odds_list)
